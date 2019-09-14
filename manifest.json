@@ -1,14 +1,18 @@
 {
-    "manifest_version": 2,
-    
-    "name": "BLND",
-    "description": "Discrimination-free browsing",
-    "version": "0.1",
-    
-    "content_scripts": [
-        {
-            "matches": ["https://github.com/*", "https://www.linkedin.com/*"],
-            "js": "content.js"
-        }
-    ]
+  "manifest_version": 2,
+
+  "name": "BLND",
+  "description": "Discrimination-free browsing",
+  "version": "0.1",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.linkedin.com/*",
+        "*://www.devpost.com/*",
+        "*://www.github.com/*"
+      ],
+      "js": ["jquery-3.4.1.min.js", "content.js"]
+    }
+  ]
 }

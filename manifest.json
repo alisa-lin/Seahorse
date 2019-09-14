@@ -3,11 +3,9 @@
 
   "name": "Seahorse",
   "description": "Discrimination-free browsing",
-  "version": "0.1",
+  "version": "1.0",
 
-  "permissions": [
-    "tabs"
-  ],
+  "permissions": ["tabs", "storage"],
 
   "content_scripts": [
     {
@@ -18,5 +16,8 @@
       ],
       "js": ["jquery-3.4.1.min.js", "content.js"]
     }
-  ]
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
 }

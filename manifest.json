@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    
+    "name": "BLND",
+    "description": "Discrimination-free browsing",
+    "version": "0.1",
+    
+    "content_scripts": [
+        {
+            "matches": ["https://github.com/*", "https://www.linkedin.com/*"],
+            "js": "content.js"
+        }
+    ]
+}

@@ -5,6 +5,10 @@
   "description": "Discrimination-free browsing",
   "version": "0.1",
 
+  "permissions": [
+    "tabs"
+  ],
+
   "content_scripts": [
     {
       "matches": [

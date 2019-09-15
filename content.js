@@ -64,12 +64,17 @@ var getSeahorse = {
 
   // Github's profile picture is not constrained by dimensions
   try {
-	var githubSearch = document.getElementsByClassName("mr-2 header-search-key-slash");
-	for (let pic of githubSearch) {
-		pic.setAttribute("src", "https://github.githubassets.com/images/search-key-slash.svg");
-	}
-  } catch(error) {
-	console.log("we are not on Github");
+    var githubSearch = document.getElementsByClassName(
+      "mr-2 header-search-key-slash"
+    );
+    for (let pic of githubSearch) {
+      pic.setAttribute(
+        "src",
+        "https://github.githubassets.com/images/search-key-slash.svg"
+      );
+    }
+  } catch (error) {
+    console.log("we are not on Github");
   }
 })(document);
 
@@ -89,10 +94,21 @@ function findAndReplace() {
 
 function replaceText(node) {
   let value = node.nodeValue;
-  value = value.replace(/She /g, "He/She  ");
-  value = value.replace(/He /g, "He/She ");
-  value = value.replace(/she /g, "he/she ");
-  value = value.replace(/he /g, "he/she  ");
+
+  if (value.startsWith("h")) {
+    value = value.replace(/he/g, "he/she");
+    value = value.replace(/him/g, "him/her");
+    value = value.replace(/her/g, "him/her");
+  } else if (value.startsWith("s")) {
+    value = value.replace(/she/g, "he/she");
+  } else if (value.startsWith("M")) {
+    value = value.replace(/Mr./g, "Mr./Ms./Mrs.");
+    value = value.replace(/Mrs./g, "Mr./Ms./Mrs.");
+    value = value.replace(/Ms./g, "Mr./Ms./Mrs.");
+  }
+  value = value.replace(/She /g, "He/She");
+  value = value.replace(/He /g, "He/She");
+
   node.nodeValue = value;
 }
 

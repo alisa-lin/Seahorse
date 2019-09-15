@@ -77,7 +77,6 @@ var getSeahorse = {
 	},
 
 	horizontal: function() {
-		console.log("horizontal image found!")
 		return this.imageLibrary[2];
 	}
 };
@@ -96,8 +95,17 @@ function Randomize(images){
 	// replace images
 	for (var i = 0; i < length; i++) {
 		var ratio = imageRatio(images[i]);
-		console.log(getSeahorse[ratio]())	
 		var img = getSeahorse[ratio]();	
 		images[i].src = img.imageurl;
+	}
+
+	// Github's profile picture is not constrained by dimensions
+	try {
+		var githubSearch = document.getElementsByClassName("mr-2 header-search-key-slash");
+		for (let pic of githubSearch) {
+			pic.setAttribute("src", "https://github.githubassets.com/images/search-key-slash.svg");
+		}
+	} catch(error) {
+		console.log("we are not on Github");
 	}
 })(document);

@@ -96,8 +96,7 @@ function Randomize(images){
 	// replace images
 	for (var i = 0; i < length; i++) {
 		var ratio = imageRatio(images[i]);
-		console.log(getSeahorse[ratio]())
-		// var number = Randomize(getSeahorse[ratio]());	
+		console.log(getSeahorse[ratio]())	
 		var img = getSeahorse[ratio]();	
 		images[i].src = img.imageurl;
 	}
